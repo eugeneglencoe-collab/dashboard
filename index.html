@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kanban Projets Pro</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="topbar">
+  <span class="topbar-title">Projets Pro — Kanban</span>
+  <button class="btn" onclick="toggleSettings()" id="settingsBtn">&#9881; Personnaliser</button>
+  <button class="btn green" onclick="openCardModal()">+ Nouvelle carte</button>
+</div>
+
+<div class="settings" id="settingsPanel">
+  <h3>Personnalisation</h3>
+  <div class="settings-grid" id="settingsGrid"></div>
+</div>
+
+<div class="legend" id="legend"></div>
+<div class="filter-bar" id="filterBar"></div>
+
+<div class="board">
+  <div class="columns" id="columns"></div>
+</div>
+
+<!-- Modal carte -->
+<div class="modal-bg" id="cardModalBg">
+  <div class="modal">
+    <h3 id="cardModalTitle">Nouvelle carte</h3>
+    <label>Titre *</label>
+    <input id="fTitle" type="text" placeholder="Description de la tâche…" />
+    <label>Client</label>
+    <select id="fClient"></select>
+    <label>Type de tâche</label>
+    <select id="fType"></select>
+    <label>Statut</label>
+    <select id="fStatus"></select>
+    <label>Priorité</label>
+    <select id="fPriority"></select>
+    <label>Échéance</label>
+    <input id="fDate" type="date" />
+    <label>Commentaire</label>
+    <textarea id="fComment" placeholder="Note optionnelle…"></textarea>
+    <div class="modal-btns">
+      <button class="btn green" onclick="saveCard()">Enregistrer</button>
+      <button class="btn" onclick="closeCardModal()">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal client -->
+<div class="modal-bg" id="clientModalBg">
+  <div class="modal" style="width:300px;">
+    <h3 id="clientModalTitle">Modifier le client</h3>
+    <label>Nom</label>
+    <input id="cName" type="text" />
+    <label>Couleur</label>
+    <div class="color-pick" id="cColorPick"></div>
+    <input type="hidden" id="cColor" />
+    <div class="modal-btns">
+      <button class="btn green" onclick="saveClient()">Enregistrer</button>
+      <button class="btn" onclick="closeClientModal()">Annuler</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
